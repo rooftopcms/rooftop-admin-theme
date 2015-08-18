@@ -2,3 +2,36 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+body.wp-admin #profile-page h3 {
+    display: none;
+}
+
+body.wp-admin form#your-profile table .user-rich-editing-wrap,
+body.wp-admin form#your-profile table .user-admin-color-wrap,
+body.wp-admin form#your-profile table .user-admin-bar-front-wrap,
+body.wp-admin form#your-profile table .user-comment-shortcuts-wrap,
+body.wp-admin form#your-profile table .show-admin-bar
+body.wp-admin form#your-profile table .user-first-name-wrap
+body.wp-admin form#your-profile table .user-last-name-wrap,
+body.wp-admin form#your-profile table .user-nickname-wrap
+body.wp-admin form#your-profile table .user-url-wrap,
+body.wp-admin form#your-profile table .user-description-wrap {
+    display: none;
+}
+
+
+/* Hide the password hint */
+body.wp-admin form#your-profile table .user-pass1-wrap input[type=password]+p.description {
+    display: none;
+}
+/* Hide the password strength indicator */
+/*body.wp-admin form#your-profile table .user-pass2-wrap #pass-strength-result,*/
+/*body.wp-admin form#your-profile table .user-pass2-wrap #pass-strength-result[style],*/
+body.wp-admin form#your-profile table .user-pass2-wrap p.description {
+    display: none !important;
+}
+
+body.wp-admin form#your-profile table .user-sessions-wrap {
+    display: none;
+}
