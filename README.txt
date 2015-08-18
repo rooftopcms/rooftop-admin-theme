@@ -43,7 +43,11 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
+<<<<<<< HEAD
 1. Upload `rooftop-admin-theme.php` to the `/wp-content/plugins/` directory
+=======
+1. Upload `justified-admin-theme.php` to the `/wp-content/plugins/` directory
+>>>>>>> 2709a9e... initial commit - boilerplate plugin
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
 

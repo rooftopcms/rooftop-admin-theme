@@ -22,7 +22,11 @@
  * @link       http://errorstudio.co.uk
  * @since      1.0.0
  *
+<<<<<<< HEAD
  * @package    Rooftop_Admin_Theme
+=======
+ * @package    Justified_Admin_Theme
+>>>>>>> 2709a9e... initial commit - boilerplate plugin
  */
 
 // If uninstall not called from WordPress, then exit.
