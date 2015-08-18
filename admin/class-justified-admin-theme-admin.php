@@ -100,4 +100,41 @@ class Justified_Admin_Theme_Admin {
 
 	}
 
+
+    /**
+     * limit the available roles
+     *
+     * called in admin_init
+     */
+    public function remove_user_roles() {
+        remove_role("subscriber");
+        remove_role("author");
+    }
+
+    /**
+     * Remove menu items from the Wordpress admin sidebar
+     *
+     * called in admin_menu
+     */
+    public function remove_admin_menus() {
+        $remove_menus = array("edit-comments.php", "themes.php", "tools.php", "options-general.php");
+        foreach($remove_menus as $menu_to_remove){
+            remove_menu_page($menu_to_remove);
+        }
+    }
+
+    /**
+     * Re-order the menu - move 'Media' below the other content types
+     *
+     * called in admin_menu
+     */
+    public function reorder_admin_menu() {
+        global $menu;
+
+        if($menu[10] && $menu[10][0]=="Media" && !array_key_exists(50, $menu)){
+            $m = $menu[10];
+            unset($menu[10]);
+            $menu[50] = $m;
+        }
+    }
 }
