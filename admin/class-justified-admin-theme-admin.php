@@ -148,4 +148,26 @@ class Justified_Admin_Theme_Admin {
             $menu[50] = $m;
         }
     }
+
+    public function remove_admin_navigation_menus(){
+        global $wp_admin_bar;
+
+        global $current_user;
+        if(!is_super_admin($current_user->ID)){
+            $wp_admin_bar->remove_menu('my-sites');
+        }
+        $wp_admin_bar->remove_menu('wp-logo');
+        $wp_admin_bar->remove_menu('comments');
+        $wp_admin_bar->remove_menu('site-name');
+    }
+
+    /**
+     * When rendering the user-edit form, remove the API specific user roles from the roles that are available in the dropdown.
+     */
+    public function remove_api_roles_if_rest_request($roles){
+        unset($roles['api-read-only']);
+        unset($roles['api-read-write']);
+
+        return $roles;
+    }
 }
