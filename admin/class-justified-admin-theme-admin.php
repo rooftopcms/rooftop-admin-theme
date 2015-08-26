@@ -117,21 +117,21 @@ class Justified_Admin_Theme_Admin {
      * called in admin_menu
      */
     public function remove_admin_menus() {
-        $remove_menus = array("edit-comments.php", "themes.php", "tools.php");
+        $remove_menus = array("edit-comments.php", "tools.php");
         foreach($remove_menus as $menu_to_remove){
             remove_menu_page($menu_to_remove);
         }
 
-        $remove_submenus_parents = array("options-general.php" => array());
+        $remove_submenus_parents = array(
+            "options-general.php" => array("options-reading.php", "options-discussion.php", "options-permalink.php"),
+            "themes.php" => array("themes.php", "customize.php?return=%2Fwp-admin%2Fprofile.php", "widgets.php", "customize.php?return=%2Fwp-admin%2Fprofile.php&#038;autofocus%5Bcontrol%5D=header_image", "customize.php?return=%2Fwp-admin%2Fprofile.php&#038;autofocus%5Bcontrol%5D=background_image")
+        );
+
         foreach($remove_submenus_parents as $submenu_parent => $submenus) {
             foreach($submenus as $submenu_to_remove) {
                 remove_submenu_page($submenu_parent, $submenu_to_remove);
             }
         }
-
-        remove_submenu_page("options-general.php", "options-reading.php");
-        remove_submenu_page("options-general.php", "options-discussion.php");
-        remove_submenu_page("options-general.php", "options-permalink.php");
     }
 
     /**
