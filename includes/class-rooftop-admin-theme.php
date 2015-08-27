@@ -9,8 +9,8 @@
  * @link       http://errorstudio.co.uk
  * @since      1.0.0
  *
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/includes
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/includes
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/includes
  * @author     Error <info@errorstudio.co.uk>
  */
-class Justified_Admin_Theme {
+class Rooftop_Admin_Theme {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Justified_Admin_Theme {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Justified_Admin_Theme_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Rooftop_Admin_Theme_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -68,7 +68,7 @@ class Justified_Admin_Theme {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'justified-admin-theme';
+		$this->plugin_name = 'rooftop-admin-theme';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
@@ -82,10 +82,10 @@ class Justified_Admin_Theme {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Justified_Admin_Theme_Loader. Orchestrates the hooks of the plugin.
-	 * - Justified_Admin_Theme_i18n. Defines internationalization functionality.
-	 * - Justified_Admin_Theme_Admin. Defines all hooks for the admin area.
-	 * - Justified_Admin_Theme_Public. Defines all hooks for the public side of the site.
+	 * - Rooftop_Admin_Theme_Loader. Orchestrates the hooks of the plugin.
+	 * - Rooftop_Admin_Theme_i18n. Defines internationalization functionality.
+	 * - Rooftop_Admin_Theme_Admin. Defines all hooks for the admin area.
+	 * - Rooftop_Admin_Theme_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -99,33 +99,33 @@ class Justified_Admin_Theme {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-justified-admin-theme-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rooftop-admin-theme-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-justified-admin-theme-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rooftop-admin-theme-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-justified-admin-theme-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-rooftop-admin-theme-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-justified-admin-theme-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-rooftop-admin-theme-public.php';
 
-		$this->loader = new Justified_Admin_Theme_Loader();
+		$this->loader = new Rooftop_Admin_Theme_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Justified_Admin_Theme_i18n class in order to set the domain and to register the hook
+	 * Uses the Rooftop_Admin_Theme_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -133,7 +133,7 @@ class Justified_Admin_Theme {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Justified_Admin_Theme_i18n();
+		$plugin_i18n = new Rooftop_Admin_Theme_i18n();
 		$plugin_i18n->set_domain( $this->get_plugin_name() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
@@ -149,7 +149,7 @@ class Justified_Admin_Theme {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Justified_Admin_Theme_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Rooftop_Admin_Theme_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -171,7 +171,7 @@ class Justified_Admin_Theme {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Justified_Admin_Theme_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Rooftop_Admin_Theme_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -202,7 +202,7 @@ class Justified_Admin_Theme {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Justified_Admin_Theme_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Rooftop_Admin_Theme_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

@@ -6,8 +6,8 @@
  * @link       http://errorstudio.co.uk
  * @since      1.0.0
  *
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/includes
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/includes
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/includes
  * @author     Error <info@errorstudio.co.uk>
  */
-class Justified_Admin_Theme_Loader {
+class Rooftop_Admin_Theme_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

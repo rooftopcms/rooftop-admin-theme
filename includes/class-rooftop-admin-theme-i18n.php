@@ -9,8 +9,8 @@
  * @link       http://errorstudio.co.uk
  * @since      1.0.0
  *
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/includes
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/includes
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/includes
  * @author     Error <info@errorstudio.co.uk>
  */
-class Justified_Admin_Theme_i18n {
+class Rooftop_Admin_Theme_i18n {
 
 	/**
 	 * The domain specified for this plugin.

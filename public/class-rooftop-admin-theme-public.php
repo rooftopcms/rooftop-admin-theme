@@ -6,8 +6,8 @@
  * @link       http://errorstudio.co.uk
  * @since      1.0.0
  *
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/public
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/public
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/public
  * @author     Error <info@errorstudio.co.uk>
  */
-class Justified_Admin_Theme_Public {
+class Rooftop_Admin_Theme_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -65,15 +65,15 @@ class Justified_Admin_Theme_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Justified_Admin_Theme_Loader as all of the hooks are defined
+		 * defined in Rooftop_Admin_Theme_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Justified_Admin_Theme_Loader will then create the relationship
+		 * The Rooftop_Admin_Theme_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/justified-admin-theme-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/rooftop-admin-theme-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,15 +88,15 @@ class Justified_Admin_Theme_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Justified_Admin_Theme_Loader as all of the hooks are defined
+		 * defined in Rooftop_Admin_Theme_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Justified_Admin_Theme_Loader will then create the relationship
+		 * The Rooftop_Admin_Theme_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/justified-admin-theme-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/rooftop-admin-theme-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 

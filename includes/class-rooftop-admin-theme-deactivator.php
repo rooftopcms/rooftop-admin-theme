@@ -6,8 +6,8 @@
  * @link       http://errorstudio.co.uk
  * @since      1.0.0
  *
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/includes
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/includes
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/includes
  * @author     Error <info@errorstudio.co.uk>
  */
-class Justified_Admin_Theme_Deactivator {
+class Rooftop_Admin_Theme_Deactivator {
 
 	/**
 	 * Short Description. (use period)

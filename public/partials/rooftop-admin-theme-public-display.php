@@ -8,8 +8,8 @@
  * @link       http://errorstudio.co.uk
  * @since      1.0.0
  *
- * @package    Justified_Admin_Theme
- * @subpackage Justified_Admin_Theme/public/partials
+ * @package    Rooftop_Admin_Theme
+ * @subpackage Rooftop_Admin_Theme/public/partials
  */
 ?>
 
