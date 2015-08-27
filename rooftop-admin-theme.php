@@ -13,7 +13,7 @@
  * @package           Rooftop_Admin_Theme
  *
  * @wordpress-plugin
- * Plugin Name:       Justified Admin Theme
+ * Plugin Name:       Rooftop Admin Theme
  * Plugin URI:        rooftop-admin-theme
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
