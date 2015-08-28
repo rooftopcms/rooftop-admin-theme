@@ -134,11 +134,13 @@ class Rooftop_Admin_Theme_Admin {
 
         // remove all but the 'menus' appearence submenu
         global $submenu;
-        $appearance_submenu_items = $submenu['themes.php'];
+        if(array_key_exists('themes.php', $submenu)){
+            $appearance_submenu_items = $submenu['themes.php'];
 
-        foreach($appearance_submenu_items as $sm){
-            if($sm[0]!="Menus") {
-                remove_submenu_page("themes.php", $sm[2]);
+            foreach($appearance_submenu_items as $sm){
+                if($sm[0]!="Menus") {
+                    remove_submenu_page("themes.php", $sm[2]);
+                }
             }
         }
     }
@@ -162,9 +164,13 @@ class Rooftop_Admin_Theme_Admin {
         global $wp_admin_bar;
 
         global $current_user;
-        if(!is_super_admin($current_user->ID)){
+        $current_user_blogs = get_blogs_of_user($current_user->ID);
+        $current_user_is_superadmin = is_super_admin($current_user->ID);
+
+        if(!$current_user_is_superadmin && count($current_user_blogs)<=1){
             $wp_admin_bar->remove_menu('my-sites');
         }
+
         $wp_admin_bar->remove_menu('wp-logo');
         $wp_admin_bar->remove_menu('comments');
         $wp_admin_bar->remove_menu('site-name');
