@@ -123,7 +123,7 @@ class Rooftop_Admin_Theme_Admin {
         }
 
         $remove_submenus_parents = array(
-            "options-general.php" => array("options-reading.php", "options-discussion.php", "options-permalink.php"),
+            "options-general.php" => array("options-reading.php", "options-discussion.php"),
         );
 
         foreach($remove_submenus_parents as $submenu_parent => $submenus) {
