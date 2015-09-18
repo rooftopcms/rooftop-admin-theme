@@ -35,3 +35,14 @@ body.wp-admin form#your-profile table .user-pass2-wrap p.description {
 body.wp-admin form#your-profile table .user-sessions-wrap {
     display: none;
 }
+
+/**
+WP Forms
+*/
+.wp-core-ui .button-primary.delete,
+.wp-core-ui .button-secondary.delete {
+    background-color: #e32f12;
+    border-color: #940602;
+    box-shadow: 0 1px 0 rgba(234, 41, 0, 1) inset;
+    color: #fff;
+}
