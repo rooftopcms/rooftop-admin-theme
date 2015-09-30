@@ -46,3 +46,7 @@ WP Forms
     box-shadow: 0 1px 0 rgba(234, 41, 0, 1) inset;
     color: #fff;
 }
+
+body.wp-admin form #edit-slug-box {
+    display: none;
+}
