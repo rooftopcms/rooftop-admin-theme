@@ -138,8 +138,8 @@ class Rooftop_Admin_Theme_Admin {
             $appearance_submenu_items = $submenu['themes.php'];
 
             foreach($appearance_submenu_items as $sm){
-                if($sm[0]!="Menus") {
-                    remove_submenu_page("themes.php", $sm[2]);
+                if(in_array($sm[0], array("Customize"))) {
+                   remove_submenu_page("themes.php", $sm[2]);
                 }
             }
         }
