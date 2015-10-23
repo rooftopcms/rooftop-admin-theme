@@ -100,6 +100,17 @@ class Rooftop_Admin_Theme_Admin {
 
 	}
 
+    public function add_rooftop_mimetypes($mimes) {
+        $mimes['svg'] = 'image/svg+xml';
+        return $mimes;
+    }
+
+    public function add_rooftop_admin_page() {
+        $rooftop_api_menu_slug = "rooftop-overview";
+
+        add_menu_page("Rooftop CMS", "Rooftop CMS", "manage_options", $rooftop_api_menu_slug, function(){
+        });
+    }
 
     /**
      * limit the available roles
@@ -107,8 +118,24 @@ class Rooftop_Admin_Theme_Admin {
      * called in admin_init
      */
     public function remove_user_roles() {
-        remove_role("subscriber");
-        remove_role("author");
+        global $wp_roles;
+
+        /**
+         * by default we remove the upload_files capability from all roles and then add it
+         * back in when the site admin enters the credentials for the S3 account
+         */
+        $blog_id = get_current_blog_id();
+        $blog_roles_removed = get_blog_option($blog_id, 'roles_and_caps_removed');
+
+        if(! $blog_roles_removed ) {
+            remove_role("subscriber");
+            remove_role("author");
+
+            foreach($wp_roles->roles as $role => $role_attributes) {
+                $wp_roles->remove_cap($role, 'upload_files');
+            }
+            update_blog_option($blog_id, 'roles_and_caps_removed', true);
+        }
     }
 
     /**
