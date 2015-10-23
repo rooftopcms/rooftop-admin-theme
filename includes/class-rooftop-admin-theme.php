@@ -154,7 +154,11 @@ class Rooftop_Admin_Theme {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
-        $this->loader->add_action('admin_init', $plugin_admin, 'remove_user_roles');
+        $this->loader->add_filter( 'upload_mimes', $plugin_admin, 'add_rooftop_mimetypes' );
+
+        $this->loader->add_action('admin_menu', $plugin_admin, 'add_rooftop_admin_page', 1);
+
+        $this->loader->add_action('init', $plugin_admin, 'remove_user_roles');
         $this->loader->add_action('admin_menu', $plugin_admin, 'remove_admin_menus');
         $this->loader->add_action('wp_before_admin_bar_render', $plugin_admin, 'remove_admin_navigation_menus');
         $this->loader->add_action('admin_menu', $plugin_admin, 'reorder_admin_menu');

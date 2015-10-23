@@ -50,3 +50,8 @@ WP Forms
 body.wp-admin form #edit-slug-box {
     display: none;
 }
+
+td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
+    width: 100% !important;
+    height: auto !important;
+}
