@@ -47,8 +47,24 @@ WP Forms
     color: #fff;
 }
 
-body.wp-admin form #edit-slug-box {
+body.wp-admin form #edit-slug-box #sample-permalink {
+    visibility: hidden;
+    font-size: 0;
+}
+body.wp-admin form #edit-slug-box #sample-permalink span {
+    visibility: visible;
+    font-size: 13px;
+
+}
+/* TODO - this doesn't work very well and is very fragile.*/
+body.wp-admin form #edit-slug-box #view-post-btn,
+body.wp-admin form #edit-slug-box a.button-small[href="#"]
+{
     display: none;
+}
+
+body.wp-admin form #edit-slug-box a.save.button-small {
+    display: inline;
 }
 
 td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
