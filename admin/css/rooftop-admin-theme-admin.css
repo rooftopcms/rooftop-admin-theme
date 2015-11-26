@@ -71,3 +71,18 @@ td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
     width: 100% !important;
     height: auto !important;
 }
+
+/* replace the WP logo with a Rooftop one */
+#wpadminbar > #wp-toolbar > #wp-admin-bar-root-default .ab-icon {
+    font: inherit;
+}
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .rooftop-icon {
+    background: url('http://rooftop-cms.dev/app/mu-plugins/rooftop-admin-theme/admin/images/logo-rooftop-white-vert-no-text.png') no-repeat;
+    background-size: 34px;
+    background-position: 2px 6px;
+    padding: 13px 18px !important;
+    display: block;
+}
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+    content: "";
+}

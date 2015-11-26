@@ -198,9 +198,38 @@ class Rooftop_Admin_Theme_Admin {
             $wp_admin_bar->remove_menu('my-sites');
         }
 
-        $wp_admin_bar->remove_menu('wp-logo');
         $wp_admin_bar->remove_menu('comments');
         $wp_admin_bar->remove_menu('site-name');
+
+        // replace the WP Logo menu (and its child links)
+        $args = array(
+            'id' => 'wp-logo',
+            'title' => "<span class='rooftop-icon'></span><span class='screen-reader-text'>Rooftop CMS</span>",
+            'href' => "/wp-admin",
+            'meta' => array()
+        );
+        $wp_admin_bar->add_node($args);
+        array_map(function($menu_item) use($wp_admin_bar) {
+            if(array_key_exists('parent', $menu_item) && $menu_item->parent === 'wp-logo') {
+                $wp_admin_bar->remove_menu($menu_item->id);
+            }
+        }, $wp_admin_bar->get_nodes());
+
+        $about_rooftop = array(
+            'id' => "rooftop-about",
+            'parent' => "wp-logo",
+            'title' => "About Rooftop CMS",
+            'href' => "https://rooftopcms.io/about"
+        );
+        $wp_admin_bar->add_node($about_rooftop);
+
+        $rooftop_docs = array(
+            'id' => "rooftop-api",
+            'parent' => "wp-logo",
+            'title' => "Rooftop API",
+            'href' => "https://rooftopcms.io/api"
+        );
+        $wp_admin_bar->add_node($rooftop_docs);
     }
 
     /**
