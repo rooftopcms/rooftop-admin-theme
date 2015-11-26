@@ -212,4 +212,11 @@ class Rooftop_Admin_Theme_Admin {
 
         return $roles;
     }
+
+    public function remove_rooftop_admin_footer_text($footer_text) {
+        return "";
+    }
+    public function remove_rooftop_admin_footer_text_test($version_text) {
+        return "";
+    }
 }
