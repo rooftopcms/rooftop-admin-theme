@@ -248,4 +248,17 @@ class Rooftop_Admin_Theme_Admin {
     public function remove_rooftop_admin_footer_text_test($version_text) {
         return "";
     }
+
+    public function remove_admin_metaboxes() {
+        remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' ); // wordpress news
+    }
+
+    public function remove_show_screen_tab($show) {
+        return !$show;
+    }
+    public function remove_admin_help_tab() {
+        global $current_screen;
+
+        $current_screen->remove_help_tabs();
+    }
 }
