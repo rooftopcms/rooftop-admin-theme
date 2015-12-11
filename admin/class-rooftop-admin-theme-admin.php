@@ -124,17 +124,19 @@ class Rooftop_Admin_Theme_Admin {
          * by default we remove the upload_files capability from all roles and then add it
          * back in when the site admin enters the credentials for the S3 account
          */
-        $blog_id = get_current_blog_id();
-        $blog_roles_removed = get_blog_option($blog_id, 'roles_and_caps_removed');
+        if( function_exists('get_blog_option') ) {
+            $blog_id = get_current_blog_id();
+            $blog_roles_removed = get_blog_option($blog_id, 'roles_and_caps_removed');
 
-        if(! $blog_roles_removed ) {
-            remove_role("subscriber");
-            remove_role("author");
+            if(! $blog_roles_removed ) {
+                remove_role("subscriber");
+                remove_role("author");
 
-            foreach($wp_roles->roles as $role => $role_attributes) {
-                $wp_roles->remove_cap($role, 'upload_files');
+                foreach($wp_roles->roles as $role => $role_attributes) {
+                    $wp_roles->remove_cap($role, 'upload_files');
+                }
+                update_blog_option($blog_id, 'roles_and_caps_removed', true);
             }
-            update_blog_option($blog_id, 'roles_and_caps_removed', true);
         }
     }
 
