@@ -86,3 +86,8 @@ td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
 #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
     content: "";
 }
+
+
+body.wp-admin table.table tr th {
+    text-align: left;
+}
