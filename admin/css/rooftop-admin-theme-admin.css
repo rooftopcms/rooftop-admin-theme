@@ -72,6 +72,30 @@ td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
     height: auto !important;
 }
 
+/* Edit page */
+
+/*remove preview*/
+.preview.button {
+    display: none;
+}
+
+/* remove password protected options*/
+#visibility {
+    display: none;
+}
+
+/* Remove embargo options*/
+.misc-pub-section.curtime {
+    display: none;
+}
+
+/* List pages / posts*/
+
+/*remove 'view' from the quick actions*/
+.row-actions span.view {
+    display: none;
+}
+
 /* replace the WP logo with a Rooftop one */
 #wpadminbar > #wp-toolbar > #wp-admin-bar-root-default .ab-icon {
     font: inherit;
