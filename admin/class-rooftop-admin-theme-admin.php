@@ -202,6 +202,7 @@ class Rooftop_Admin_Theme_Admin {
 
         $wp_admin_bar->remove_menu('comments');
         $wp_admin_bar->remove_menu('site-name');
+        $wp_admin_bar->remove_menu('preview');
 
         // replace the WP Logo menu (and its child links)
         $args = array(
