@@ -162,6 +162,9 @@ class Rooftop_Admin_Theme {
 
         $this->loader->add_action( 'init', $plugin_admin, 'remove_user_roles' );
 
+        $this->loader->add_action( 'set_current_user', $plugin_admin, 'remove_kses_filters' );
+        $this->loader->add_filter( 'map_meta_cap', $plugin_admin, 'remove_multisite_filters', 10, 4 );
+
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'remove_admin_metaboxes', 10, 1 );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'remove_admin_menus', 10 );
 
