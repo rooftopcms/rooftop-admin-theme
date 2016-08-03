@@ -140,6 +140,21 @@ class Rooftop_Admin_Theme_Admin {
         }
     }
 
+    public function remove_kses_filters() {
+        if( current_user_can( 'unfiltered_html' ) ) {
+            kses_remove_filters();
+        }
+    }
+
+    public function remove_multisite_filters( $caps, $cap, $user_id, $args ) {
+        if ( $cap == 'unfiltered_html' ) {
+            unset( $caps );
+            $caps[] = $cap;
+        }
+
+        return $caps;
+    }
+
     /**
      * Remove menu items from the Wordpress admin sidebar
      *

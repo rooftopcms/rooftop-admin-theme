@@ -162,10 +162,13 @@ class Rooftop_Admin_Theme {
 
         $this->loader->add_action( 'init', $plugin_admin, 'remove_user_roles' );
 
+        $this->loader->add_action( 'set_current_user', $plugin_admin, 'remove_kses_filters' );
+        $this->loader->add_filter( 'map_meta_cap', $plugin_admin, 'remove_multisite_filters', 10, 4 );
+
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'remove_admin_metaboxes', 10, 1 );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'remove_admin_menus', 10 );
 
-        $this->loader->add_action( 'screen_options_show_screen', $plugin_admin, 'remove_show_screen_tab', 10, 1);
+//        $this->loader->add_action( 'screen_options_show_screen', $plugin_admin, 'remove_show_screen_tab', 10, 1);
         $this->loader->add_action( 'contextual_help_list', $plugin_admin, 'remove_admin_help_tab', 10, 1);
 
         $this->loader->add_action( 'wp_before_admin_bar_render', $plugin_admin, 'remove_admin_navigation_menus' );
