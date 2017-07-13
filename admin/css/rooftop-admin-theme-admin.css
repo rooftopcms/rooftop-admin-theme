@@ -7,6 +7,21 @@ body.wp-admin #profile-page h3 {
     display: none;
 }
 
+body.settings_page_duplicatepost div[style='margin: 9px 15px 4px 0; padding: 5px 30px; text-align: center; float: left; clear:left; border: solid 3px #cccccc; width: 600px;'] {
+    border: none !important;
+}
+body.settings_page_duplicatepost div[style='margin: 9px 15px 4px 0; padding: 5px 30px; text-align: center; float: left; clear:left; border: solid 3px #cccccc; width: 600px;']:after {
+    content: ""
+}
+body.settings_page_duplicatepost div[style='margin: 9px 15px 4px 0; padding: 5px 30px; text-align: center; float: left; clear:left; border: solid 3px #cccccc; width: 600px;'] p {
+    display: none;
+    text-align: left;
+}
+
+body.settings_page_duplicatepost form[action="options.php"]:after {
+    content: "This plugin is developed by Enrico Battocchi - https://wordpress.org/plugins/duplicate-post/";
+}
+
 body.wp-admin form#your-profile table .user-rich-editing-wrap,
 body.wp-admin form#your-profile table .user-admin-color-wrap,
 body.wp-admin form#your-profile table .user-admin-bar-front-wrap,
