@@ -130,3 +130,8 @@ body.wp-admin table.table tr th {
 .preview.button {
     display: none;
 }
+
+body.wp-admin .hint {
+    font-style: italic;
+    font-size: 0.8em;
+}
