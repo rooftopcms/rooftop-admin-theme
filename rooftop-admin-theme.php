@@ -15,11 +15,11 @@
  * @wordpress-plugin
  * Plugin Name:       Rooftop Admin Theme
  * Plugin URI:        rooftop-admin-theme
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
- * Author:            Error
+ * Description:       rooftop-admin-theme handles some basic tweaks to the Wordpress Admin UI, and adds some Rooftop specific features.
+ * Version:           1.2.1
+ * Author:            RooftopCMS
  * Author URI:        https://www.rooftopcms.com
- * License:           GPL-2.0+
+ * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       rooftop-admin-theme
  * Domain Path:       /languages

@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Rooftop Admin Theme ===
 Contributors: rooftopcms
 Tags: rooftop, api, admin, headless
 Requires at least: 4.3
@@ -7,7 +7,7 @@ Stable tag: 4.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-rooftop-admin-theme handles some basic tweaks to the Wordpress Admin UI, and adds some Rooftop specific features
+rooftop-admin-theme handles some basic tweaks to the Wordpress Admin UI, and adds some Rooftop specific features.
 
 == Description ==
 
