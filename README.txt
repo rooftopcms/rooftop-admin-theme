@@ -2,12 +2,12 @@
 Contributors: rooftopcms
 Tags: rooftop, api, admin, headless
 Requires at least: 4.3
-Tested up to: 4.3
+Tested up to: 4.8.1
 Stable tag: 4.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-rooftop-admin-theme is the plugin used to make WordPress look like Rooftop CMS
+rooftop-admin-theme handles some basic tweaks to the Wordpress Admin UI, and adds some Rooftop specific features
 
 == Description ==
 
@@ -33,8 +33,14 @@ Yes, it's a Wordpress plugin you're welcome to use outside the context of Roofto
 
 == Changelog ==
 
-= 0.0.1 =
-* Initial release
+= 1.2.1 =
+Added a .hint css class to use in various places
+Readme tweaks for packaging
+
+= 1.2.0 =
+Remove some notification/info text
+Hide the preview button by default (enabled in rooftop-preview-mode-admin)
+
 
 == What's Rooftop CMS? ==
 
