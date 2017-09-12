@@ -161,30 +161,75 @@ class Rooftop_Admin_Theme_Admin {
      * called in admin_menu
      */
     public function remove_admin_menus() {
-        $remove_menus = array("edit-comments.php", "tools.php");
+        global $submenu, $menu;
+
+        $find_menu = function($slug) use($menu) {
+            foreach($menu as $key => $menu_item) {
+                if($menu_item[2] == $slug) {
+                    return array("id" => $key, "menu_item" => $menu_item);
+                }
+            }
+
+            return false;
+        };
+
+        $find_child_menu = function($parent_slug, $child_slug) use($submenu) {
+            $submenu_item = $submenu[$parent_slug];
+            foreach($submenu_item as $key => $child) {
+                if($child[2] === $child_slug) {
+                    return array("id" => $key, "menu_item" => $child);
+                }
+            }
+
+            return false;
+        };
+
+        // remove top-level menu items by setting their required capability to manage_network (only network admins
+        // can access if they know they url) and removing them from the menu renderer
+        $remove_menus = array("edit-comments.php");
         foreach($remove_menus as $menu_to_remove){
-            remove_menu_page($menu_to_remove);
-        }
-
-        $remove_submenus_parents = array(
-            "options-general.php" => array("options-reading.php", "options-discussion.php"),
-        );
-
-        foreach($remove_submenus_parents as $submenu_parent => $submenus) {
-            foreach($submenus as $submenu_to_remove) {
-                remove_submenu_page($submenu_parent, $submenu_to_remove);
+            $comments_menu = $find_menu("edit-comments.php");
+            if($comments_menu) {
+                $comments_menu[1] = "manage_network";
+                remove_menu_page($menu_to_remove);
             }
         }
 
-        // remove all but the 'menus' appearence submenu
-        global $submenu;
-        if(array_key_exists('themes.php', $submenu)){
-            $appearance_submenu_items = $submenu['themes.php'];
+        // as above, but just for child menu items
+        $remove_submenus = array(
+            "options-general.php" => array("options-reading.php", "options-discussion.php"),
+            "themes.php" => array("customize.php", "customize.php?return=%2Fwp-admin%2F")
+        );
 
-            foreach($appearance_submenu_items as $sm){
-                if(in_array($sm[0], array("Customize"))) {
-                   remove_submenu_page("themes.php", $sm[2]);
+        foreach($remove_submenus as $submenu_parent => $submenus) {
+            foreach($submenus as $submenu_to_remove) {
+                $child_submenu = $find_child_menu($submenu_parent, $submenu_to_remove);
+
+                if($child_submenu) {
+                    $child_submenu["menu_item"][1] = "manage_network";
+
+                    $submenu[$submenu_parent][$child_submenu["id"]] = $child_submenu["menu_item"];
+                    remove_submenu_page($submenu_parent, $submenu_to_remove); // also remove the menu item for network admins
                 }
+
+            }
+        }
+
+        // remove certain menus based on a required capability
+        $menu_capabilities = array(
+            "tools.php" => array("capability" => "manage_network")
+        );
+
+        foreach($menu_capabilities as $submenu_parent => $submenu_options) {
+            if(! current_user_can($submenu_options['capability'])) {
+                remove_menu_page( $submenu_parent );
+                $submenu_item = $submenu[$submenu_parent];
+                foreach($submenu_item as $submenu_item_id => $submenu_items_child) {
+                    $submenu_items_child[1] = $submenu_options['capability'];
+                    $submenu_item[$submenu_item_id] = $submenu_items_child;
+                }
+
+                $submenu[$submenu_parent] = $submenu_item;
             }
         }
     }
@@ -204,7 +249,7 @@ class Rooftop_Admin_Theme_Admin {
         }
     }
 
-    public function remove_admin_navigation_menus(){
+    public function remove_admin_navigation_menus() {
         global $wp_admin_bar;
 
         global $current_user;
