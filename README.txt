@@ -33,6 +33,9 @@ Yes, it's a Wordpress plugin you're welcome to use outside the context of Roofto
 
 == Changelog ==
 
+= 1.2.2 =
+Some configuration on the 'contributor' role to allow for submitting pages
+
 = 1.2.1 =
 Added a .hint css class to use in various places
 Readme tweaks for packaging

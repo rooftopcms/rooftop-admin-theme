@@ -324,4 +324,9 @@ class Rooftop_Admin_Theme_Admin {
 
         $current_screen->remove_help_tabs();
     }
+
+    public function configure_contributor_role() {
+        $contributor = get_role( 'contributor' );
+        $contributor->add_cap('edit_pages' );
+    }
 }

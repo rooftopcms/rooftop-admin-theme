@@ -16,7 +16,7 @@
  * Plugin Name:       Rooftop Admin Theme
  * Plugin URI:        rooftop-admin-theme
  * Description:       rooftop-admin-theme handles some basic tweaks to the Wordpress Admin UI, and adds some Rooftop specific features.
- * Version:           1.2.1
+ * Version:           1.2.2
  * Author:            RooftopCMS
  * Author URI:        https://www.rooftopcms.com
  * License:           GPL-3.0+
