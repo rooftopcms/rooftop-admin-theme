@@ -242,7 +242,7 @@ class Rooftop_Admin_Theme_Admin {
     public function reorder_admin_menu() {
         global $menu;
 
-        if($menu[10] && $menu[10][0]=="Media" && !array_key_exists(50, $menu)){
+        if($menu[10] && $menu[10][0]=="Media" && isset( $menu[50] )){
             $m = $menu[10];
             unset($menu[10]);
             $menu[50] = $m;
@@ -273,7 +273,7 @@ class Rooftop_Admin_Theme_Admin {
         );
         $wp_admin_bar->add_node($args);
         array_map(function($menu_item) use($wp_admin_bar) {
-            if(array_key_exists('parent', $menu_item) && $menu_item->parent === 'wp-logo') {
+            if(property_exists($menu_item, 'parent') && $menu_item->parent === 'wp-logo') {
                 $wp_admin_bar->remove_menu($menu_item->id);
             }
         }, $wp_admin_bar->get_nodes());
