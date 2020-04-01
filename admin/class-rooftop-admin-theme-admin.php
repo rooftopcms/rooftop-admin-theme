@@ -105,34 +105,6 @@ class Rooftop_Admin_Theme_Admin {
         return $mimes;
     }
 
-    /**
-     * limit the available roles
-     *
-     * called in admin_init
-     */
-    public function remove_user_roles() {
-        global $wp_roles;
-
-        /**
-         * by default we remove the upload_files capability from all roles and then add it
-         * back in when the site admin enters the credentials for the S3 account
-         */
-        if( function_exists('get_blog_option') ) {
-            $blog_id = get_current_blog_id();
-            $blog_roles_removed = get_blog_option($blog_id, 'roles_and_caps_removed');
-
-            if(! $blog_roles_removed ) {
-                remove_role("subscriber");
-                remove_role("author");
-
-                foreach($wp_roles->roles as $role => $role_attributes) {
-                    $wp_roles->remove_cap($role, 'upload_files');
-                }
-                update_blog_option($blog_id, 'roles_and_caps_removed', true);
-            }
-        }
-    }
-
     public function remove_kses_filters() {
         if( current_user_can( 'unfiltered_html' ) ) {
             kses_remove_filters();
@@ -228,67 +200,6 @@ class Rooftop_Admin_Theme_Admin {
     }
 
     /**
-     * Re-order the menu - move 'Media' below the other content types
-     *
-     * called in admin_menu
-     */
-    public function reorder_admin_menu() {
-        global $menu;
-
-        if($menu[10] && $menu[10][0]=="Media" && isset( $menu[50] )){
-            $m = $menu[10];
-            unset($menu[10]);
-            $menu[50] = $m;
-        }
-    }
-
-    public function remove_admin_navigation_menus() {
-        global $wp_admin_bar;
-
-        global $current_user;
-        $current_user_blogs = get_blogs_of_user($current_user->ID);
-        $current_user_is_superadmin = is_super_admin($current_user->ID);
-
-        if(!$current_user_is_superadmin && count($current_user_blogs)<=1){
-            $wp_admin_bar->remove_menu('my-sites');
-        }
-
-        $wp_admin_bar->remove_menu('comments');
-        $wp_admin_bar->remove_menu('site-name');
-        $wp_admin_bar->remove_menu('preview');
-
-        // replace the WP Logo menu (and its child links)
-        $args = array(
-            'id' => 'wp-logo',
-            'title' => "<span class='rooftop-icon'></span><span class='screen-reader-text'>Rooftop CMS</span>",
-            'href' => "/wp-admin",
-            'meta' => array()
-        );
-        $wp_admin_bar->add_node($args);
-        array_map(function($menu_item) use($wp_admin_bar) {
-            if(property_exists($menu_item, 'parent') && $menu_item->parent === 'wp-logo') {
-                $wp_admin_bar->remove_menu($menu_item->id);
-            }
-        }, $wp_admin_bar->get_nodes());
-
-        $about_rooftop = array(
-            'id' => "rooftop-about",
-            'parent' => "wp-logo",
-            'title' => "About Rooftop CMS",
-            'href' => "https://rooftopcms.io/about"
-        );
-        $wp_admin_bar->add_node($about_rooftop);
-
-        $rooftop_docs = array(
-            'id' => "rooftop-api",
-            'parent' => "wp-logo",
-            'title' => "Rooftop API",
-            'href' => "https://rooftopcms.io/api"
-        );
-        $wp_admin_bar->add_node($rooftop_docs);
-    }
-
-    /**
      * When rendering the user-edit form, remove the API specific user roles from the roles that are available in the dropdown.
      */
     public function remove_api_roles_if_rest_request($roles){
@@ -311,11 +222,6 @@ class Rooftop_Admin_Theme_Admin {
 
     public function remove_show_screen_tab($show) {
         return !$show;
-    }
-    public function remove_admin_help_tab() {
-        global $current_screen;
-
-        $current_screen->remove_help_tabs();
     }
 
     public function configure_contributor_role() {
