@@ -105,13 +105,6 @@ class Rooftop_Admin_Theme_Admin {
         return $mimes;
     }
 
-    public function add_rooftop_admin_page() {
-        $rooftop_api_menu_slug = "rooftop-overview";
-
-        add_menu_page("Rooftop CMS", "Rooftop CMS", "manage_options", $rooftop_api_menu_slug, function(){
-        });
-    }
-
     /**
      * limit the available roles
      *
