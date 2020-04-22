@@ -203,6 +203,7 @@ class Rooftop_Admin_Theme_Admin {
      * When rendering the user-edit form, remove the API specific user roles from the roles that are available in the dropdown.
      */
     public function remove_api_roles_if_rest_request($roles){
+        unset($roles['api-preview']);
         unset($roles['api-read-only']);
         unset($roles['api-read-write']);
 
