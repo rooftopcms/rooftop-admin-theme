@@ -177,6 +177,8 @@ class Rooftop_Admin_Theme {
         $this->loader->add_filter( 'editable_roles', $plugin_admin, 'remove_api_roles_if_rest_request' );
 
         $this->loader->add_filter( 'init', $plugin_admin, 'configure_contributor_role', 10 );
+
+		$this->loader->add_filter( 'postmeta_form_keys', $plugin_admin, 'custom_postmeta_form_keys', 10 );
 	}
 
 	/**
