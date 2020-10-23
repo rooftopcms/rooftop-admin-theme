@@ -162,7 +162,7 @@ class Rooftop_Admin_Theme_Admin {
 
         // as above, but just for child menu items
         $remove_submenus = array(
-            "options-general.php" => array("options-reading.php", "options-discussion.php"),
+            "options-general.php" => array("options-discussion.php"),
             "themes.php" => array("customize.php", "customize.php?return=%2Fwp-admin%2F")
         );
 
