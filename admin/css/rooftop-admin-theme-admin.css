@@ -1,0 +1,15 @@
+body.post-type-venue div#preview-action,
+body.post-type-event_type div#preview-action,
+body.post-type-audience div#preview-action,
+body.post-type-ctas div#preview-action,
+body.post-type-person div#preview-action {
+    display: none;
+}
+
+body.post-type-venue div#edit-slug-box,
+body.post-type-event_type div#edit-slug-box,
+body.post-type-audience div#edit-slug-box,
+body.post-type-ctas div#edit-slug-box,
+body.post-type-person div#edit-slug-box {
+    display: none;
+}
